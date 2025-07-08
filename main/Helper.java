@@ -18,4 +18,10 @@ public class Helper {
         }
     }
 
+    //HIER WIRD NUR DAS 1. ZEICHEN EINER ZEICHENKETTE AUSGELESEN
+    public static char getChar() {
+        scan.nextLine();
+        return scan.nextLine().charAt(0);
+    }
+
 }

@@ -16,9 +16,14 @@ public class PotenzController {
         startProgramm();
     }
 
-    private void startProgramm() {
+    public void startProgramm() {
         model.setBasis(view.readBasis());
         view.showPotenz(model.getPotenz());
+    }
+
+    // UM nochMal() AN DIE START.JAVA ZU SCHICKEN
+    public boolean nochMal() {
+        return view.nochMal();
     }
 
 }

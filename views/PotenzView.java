@@ -22,9 +22,25 @@ public class PotenzView {
         return Helper.getDouble();
     }
 
-    // showPotenz-METHODE
+    // showPotenz-METHODE (ZEIGT DIE POTENZ AN)
     public void showPotenz(double potenz) {
         System.out.println("Die Potenz ist " + potenz + ".");
+    }
+
+    // nochMal-METHODE (WIEDERHOLT DAS PROGRAMM)
+    public boolean nochMal() {
+        System.out.println("\nNoch eine Berechnung? (j/n)");
+        char test = ' ';
+        while(true) {
+            test = Helper.getChar();
+            if(test == 'j')
+                return true;
+            else if(test == 'n')
+                return false;
+            else {
+                System.out.println("Bitte nur j / n.");
+            }
+        }
     }
 
 }
