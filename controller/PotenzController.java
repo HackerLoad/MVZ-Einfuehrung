@@ -22,17 +22,18 @@ public class PotenzController {
 
         try {
 
-            if(inputName.equals("basisInput")) {
-                model.setBasis(Double.parseDouble(view.getBasisInput().getText().replace(',', '.')));
-                view.setPotenzInput(model.getPotenz());
+            switch(inputName) {
+                case "basisInput":
+                    model.setBasis(Double.parseDouble(view.getBasisInput().getText().replace(',', '.')));
+                    view.setPotenzInput(model.getPotenz());
+                    break;
+                case "potenzInput":
+                    model.setPotenz(Double.parseDouble(view.getPotenzInput().getText().replace(',', '.')));
+                    view.setBasisInput(model.getBasis());
+                    break;
+                default:
+                    return;
             }
-            else if(inputName.equals("potenzInput")) {
-                model.setPotenz(Double.parseDouble(view.getPotenzInput().getText().replace(',', '.')));
-                view.setBasisInput(model.getBasis());
-            }
-            else
-                return;
-
             toggleError(inputName,false); //FEHLERNACHRICHT AUSBLENDEN
 
         } catch (NumberFormatException e) {

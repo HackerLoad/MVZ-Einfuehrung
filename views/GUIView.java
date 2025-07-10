@@ -18,6 +18,8 @@ public class GUIView extends JFrame {
     private JTextField basisInput;              // EINGABE-BASIS
     private JTextField potenzInput;             // EINGABE-OUTPUT
 
+    private JButton closeButton;                //SCHLIEßEN-KNOPF
+
     //KONSTRUKTOR
     public GUIView(String name, PotenzController controller) {
         super(name);    //ÜBERGABE AN MUTTI-KONSTRUKTOR
@@ -54,6 +56,17 @@ public class GUIView extends JFrame {
         };
         basisInput.addActionListener(inputChangedAction);
         potenzInput.addActionListener(inputChangedAction);
+
+        //SCHALTFLÄCHEN
+        //SCHLIE0EN
+        closeButton = new JButton("Schließen");
+            //ACTION LISTENER (NUR closeButton)
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); //SCHLIEßT DAS PROGRAMM
+            }
+        });
 
         //ERSTELLEN GRID
         setLayout(new GridBagLayout());
@@ -99,15 +112,26 @@ public class GUIView extends JFrame {
         co.gridx = 2;
         add(potenzInput, co);
 
-        //FEHLERMELDUNG
+        //SPACER
         co.gridx = 0;
         co.gridy = 4;
-        co.gridwidth = 0;
+        add(new JLabel("    "), co);
+
+        //BEENDEN KNOPF
+        co.gridx = 0;
+        co.gridy = 5;
+        add(closeButton, co);
+
+        //FEHLERMELDUNG
+        co.gridx = 0;
+        co.gridy = 6;
+        co.gridwidth = 3;
         co.fill = GridBagConstraints.HORIZONTAL;
         add(errorMessage, co);
 
         //GRÖßE & SICHTBARKEIT
-        setSize(600, 300);
+        setDefaultCloseOperation(EXIT_ON_CLOSE); //SCHLIEßT DAS PROGRAMM
+        setSize(600, 300); //BREITE & HÖHE
         setVisible(true);
     }
 
